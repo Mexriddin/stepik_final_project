@@ -1,6 +1,6 @@
 import pytest
 import time
-from pages.locators import BasePageLocators
+from .pages.locators import BasePageLocators
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
 from .pages.product_page import ProductPage
@@ -51,7 +51,7 @@ promos = ['offer0', 'offer1', 'offer2', 'offer3', 'offer4', 'offer5', 'offer6',
 
 
 @pytest.mark.parametrize('promo', promos)
-def test_guest_can_add_product_to_basket(self, browser, promo):
+def test_guest_can_add_product_to_basket(browser, promo):
     product_page = ProductPage(browser,
                                f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo={promo}')
     product_page.open()
@@ -70,7 +70,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_page.should_not_be_success_message()
 
 
-def test_guest_cant_see_success_message(self, browser):
+def test_guest_cant_see_success_message(browser):
     product_page = ProductPage(browser, "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/")
     product_page.open()
     product_page.should_not_be_success_message()
