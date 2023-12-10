@@ -7,7 +7,7 @@ class BasePage:
         self.url = url
         self.browser.implicitly_wait(timeout)
 
-    def open_url(self):
+    def open(self):
         return self.browser.get(self.url)
 
 
