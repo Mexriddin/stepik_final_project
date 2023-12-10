@@ -17,11 +17,11 @@ class ProductPage(BasePage):
     def should_be_name_in_message_add_basket(self):
         expect_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         actual_name = self.browser.find_element(*ProductPageLocators.PRODUCT_MESSAGE_NAME).text
-        assert expect_name in actual_name, \
-            "The product name in the message does not match the product you actually added."
+        assert expect_name == actual_name, \
+            f"The product name in the message '{actual_name}' does not match the product you actually '{expect_name}' added."
 
     def should_be_price_in_message_add_basket(self):
         expect_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         actual_price = self.browser.find_element(*ProductPageLocators.PRODUCT_MESSAGE_PRICE).text
         assert expect_price in actual_price, \
-            "The product price in the message does not match the product you actually added."
+            f"The product price in the message '{actual_price}' does not match the product you actually '{actual_price}' added."

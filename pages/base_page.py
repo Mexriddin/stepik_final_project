@@ -1,4 +1,6 @@
 import math
+import time
+
 from selenium.common import NoSuchElementException, NoAlertPresentException
 
 
